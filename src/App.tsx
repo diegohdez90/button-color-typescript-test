@@ -28,10 +28,12 @@ function App() {
       >Change to {changeButtonColor}</button>
       <div>
         <input
+          id='checkbox-disabled-button'
           type="checkbox"
           name='checkbox'
           onChange={onChangeCheckedToDisableButton}
         />
+        <label htmlFor="checkbox-disabled-button">Disable button</label>
       </div>
     </div>
   );
