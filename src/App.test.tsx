@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import App from './App';
+import App, { replaceCamelCaseWithSpaces } from './App';
 
 const setup = () => render(<App />);
 
@@ -125,3 +125,18 @@ test('Click on disabled change background color to gray when is blue, and revert
     backgroundColor: 'blue'
   });
 });
+
+
+describe('spaces before camel case capital letter', () => {
+  test('should works for no inner capital letters', () => {
+    expect(replaceCamelCaseWithSpaces('Red')).toBe('Red');
+  });
+
+  test('should works for a least one inner capital letter', () => {
+    expect(replaceCamelCaseWithSpaces('MidnightBlue')).toBe('Midnight Blue');
+  });
+
+  test('should works for multiple capital letters', () => {
+    expect(replaceCamelCaseWithSpaces('MediumVioletRed')).toBe('Medium Violet Red');
+  });
+})
