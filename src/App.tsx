@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import { MEDIUM_VIOLET_RED, MIDNIGHT_BLUE } from './constants';
 
 export function replaceCamelCaseWithSpaces (colorName: string) {
   return colorName.replace(/\B([A-Z])\B/g, ' $1');
@@ -7,10 +8,10 @@ export function replaceCamelCaseWithSpaces (colorName: string) {
 
 function App() {
 
-  const [color, setColor] = useState('red');
+  const [color, setColor] = useState(MEDIUM_VIOLET_RED);
   const [disabled, setDisabled] = useState(false);
 
-  const changeButtonColor = color === 'red' ? 'blue' : 'red';
+  const changeButtonColor = color === MEDIUM_VIOLET_RED ? MIDNIGHT_BLUE : MEDIUM_VIOLET_RED;
 
   const onChangeColor = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -30,7 +31,7 @@ function App() {
           backgroundColor: disabled ? 'gray' : color
         }}
         disabled={disabled}
-      >Change to {changeButtonColor}</button>
+      >Change to {replaceCamelCaseWithSpaces(changeButtonColor)}</button>
       <div>
         <input
           id='checkbox-disabled-button'
