@@ -15,7 +15,7 @@ function App() {
 
   const onChangeColor = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setColor(changeButtonColor)
+    setColor(changeButtonColor);
   }
 
   const onChangeCheckedToDisableButton = (e: React.ChangeEvent<HTMLInputElement>) => {
