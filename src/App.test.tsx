@@ -39,3 +39,24 @@ test('initial conditions', () => {
   const checkbox = screen.getByRole('checkbox');
   expect(checkbox).not.toBeChecked();
 });
+
+test('Disabled button', () => {
+  setup();
+
+  const button = screen.getByRole('button', {
+    name: 'Change to blue'
+  });
+  expect(button).toBeEnabled();
+
+  const checkbox = screen.getByRole('checkbox');
+  expect(checkbox).not.toBeChecked();
+
+  fireEvent.click(checkbox);
+  expect(checkbox).toBeChecked();
+  expect(button).toBeDisabled();
+
+  fireEvent.click(checkbox);
+  expect(checkbox).not.toBeChecked();
+  expect(button).toBeEnabled();
+
+});

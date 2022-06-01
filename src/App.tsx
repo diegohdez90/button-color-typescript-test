@@ -3,13 +3,18 @@ import './App.css';
 
 function App() {
 
-  const [color, setColor] = useState('red')
+  const [color, setColor] = useState('red');
+  const [disabled, setDisabled] = useState(false);
 
   const changeButtonColor = color === 'red' ? 'blue' : 'red';
 
   const onChangeColor = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setColor(changeButtonColor)
+  }
+
+  const onChangeCheckedToDisableButton = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDisabled(Boolean(e.target.checked).valueOf())
   }
 
   return (
@@ -19,9 +24,14 @@ function App() {
         style={{
           backgroundColor: color
         }}
+        disabled={disabled}
       >Change to {changeButtonColor}</button>
       <div>
-        <input type="checkbox" name='checkbox'/>
+        <input
+          type="checkbox"
+          name='checkbox'
+          onChange={onChangeCheckedToDisableButton}
+        />
       </div>
     </div>
   );
