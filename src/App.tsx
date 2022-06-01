@@ -14,7 +14,8 @@ function App() {
   }
 
   const onChangeCheckedToDisableButton = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDisabled(Boolean(e.target.checked).valueOf())
+    const isChecked = Boolean(e.target.checked).valueOf();
+    setDisabled(isChecked)
   }
 
   return (
@@ -22,7 +23,7 @@ function App() {
       <button
         onClick={onChangeColor}
         style={{
-          backgroundColor: color
+          backgroundColor: disabled ? 'gray' : color
         }}
         disabled={disabled}
       >Change to {changeButtonColor}</button>
