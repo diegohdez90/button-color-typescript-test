@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [color, setColor] = useState('red')
+
+  const changeButtonColor = color === 'red' ? 'blue' : 'red';
+
+  const onChangeColor = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setColor(changeButtonColor)
+  }
+
   return (
     <div>
       <button
+        onClick={onChangeColor}
         style={{
-          backgroundColor: 'red'
+          backgroundColor: color
         }}
-      >Change to blue</button>
+      >Change to {changeButtonColor}</button>
     </div>
   );
 }
