@@ -20,6 +20,9 @@ function App() {
           backgroundColor: color
         }}
       >Change to {changeButtonColor}</button>
+      <div>
+        <input type="checkbox" name='checkbox'/>
+      </div>
     </div>
   );
 }

@@ -27,3 +27,15 @@ test('button turns blue when is clicked', () => {
   });
   expect(button).toHaveTextContent('Change to red');
 });
+
+test('initial conditions', () => {
+  setup();
+  const button = screen.getByRole('button', {
+    name: 'Change to blue'
+  });
+
+  expect(button).toBeEnabled();
+
+  const checkbox = screen.getByRole('checkbox');
+  expect(checkbox).not.toBeChecked();
+});
